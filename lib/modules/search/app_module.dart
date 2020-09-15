@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutterarquitetureapp/modules/search/domain/usercases/search_by_text.dart';
 import 'package:flutterarquitetureapp/modules/search/external/datasources/github_datasource.dart';
 import 'package:flutterarquitetureapp/modules/search/infra/repositories/search_repository_impl.dart';
+import 'package:flutterarquitetureapp/modules/search/presenter/search/search_page.dart';
 
 import 'app_widget.dart';
 
@@ -23,6 +24,8 @@ class AppModule extends MainModule{
 
   @override
   // TODO: implement routers
-  List<ModularRouter> get routers => throw UnimplementedError();
+  List<ModularRouter> get routers => [
+    ModularRouter('/', child: (x, y) => SearchPage()),
+  ];
 
 }
