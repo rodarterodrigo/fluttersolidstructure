@@ -28,7 +28,7 @@ main(){
     expect(result.fold(id, id), isA<InvalidTextError>());
   });
 
-  test("Must return a resultSearchList.", () async {
+  test("Must return the same Exception.", () async {
     when(repository.search(any)).thenThrow(InvalidTextError());
     final result = await usecase("rodarte");
     expect(result.fold(id, id), isA<InvalidTextError>());
