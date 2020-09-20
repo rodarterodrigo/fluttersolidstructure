@@ -17,11 +17,6 @@ class GitHubDataSource implements SearchDataSource{
   @override
   Future<List<ResultSearchModel>> getSearch(String searchText) async {
     final response = await dio.get("https://api.github.com/search/users?q=${searchText.normalize()}");
-    if(response.statusCode == 200){
-     final list = (response.data['items'] as List).map((map) => ResultSearchModel.fromMap(map)).toList();
-     return list;
-    }
-    else
-      throw DataSourceError();
+    return response.statusCode == 200? (response.data['items'] as List).map((map) => ResultSearchModel.fromMap(map)).toList(): throw DataSourceError();
   }
 }

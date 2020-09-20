@@ -16,10 +16,7 @@ class SearchByText implements ISearchByText{
   @override
   Future<Either<FailureSearch, List<ResultSearch>>> call(String searchText) async {
     try {
-      if (searchText == null || searchText.isEmpty) {
-        return Left(InvalidTextError());
-      }
-      return await repository.search(searchText);
+      return searchText == null? Left(InvalidTextError()): searchText.isEmpty? Left(InvalidTextError()): await repository.search(searchText);
     }
     catch(e){
       return Left(InvalidTextError());
