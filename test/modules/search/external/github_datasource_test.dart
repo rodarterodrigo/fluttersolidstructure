@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutterarquitetureapp/modules/search/domain/errors/errors.dart';
 import 'package:flutterarquitetureapp/modules/search/external/datasources/github_datasource.dart';
+import 'package:flutterarquitetureapp/modules/search/infra/models/result_search_model.dart';
 import 'package:mockito/mockito.dart';
 import '../utils/github_response.dart';
 
@@ -20,6 +21,12 @@ main(){
     when(dio.get(any)).thenAnswer((realInvocation) async => Response(data: jsonDecode(gitHubResult), statusCode: 200));
     final future = datasource.getSearch("searchText");
     expect(future, completes);
+  });
+
+  test("Must return a ResultSearchModel list", () async {
+    when(dio.get(any)).thenAnswer((realInvocation) async => Response(data: jsonDecode(gitHubResult), statusCode: 200));
+    final future = datasource.getSearch("searchText");
+    expect(future, isA<Future<List<ResultSearchModel>>>());
   });
 
   test("Must return a Exception when the code isn't 200", () async {

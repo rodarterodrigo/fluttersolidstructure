@@ -4,7 +4,8 @@ import 'package:flutterarquitetureapp/modules/search/presenter/search/states/sta
 
 class SearchBloc extends Bloc<String, SearchState>{
   final SearchByText usecase;
-  SearchBloc(this.usecase): super(SearchStart());
+    SearchBloc(this.usecase): super(SearchStart());
+
   @override
   Stream<SearchState> mapEventToState(String searchText) async*{
     yield SearchLoad();

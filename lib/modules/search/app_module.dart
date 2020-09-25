@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutterarquitetureapp/modules/search/domain/usercases/search_by_text.dart';
 import 'package:flutterarquitetureapp/modules/search/external/datasources/github_datasource.dart';
 import 'package:flutterarquitetureapp/modules/search/infra/repositories/search_repository_impl.dart';
+import 'package:flutterarquitetureapp/modules/search/presenter/search/search_bloc.dart';
 import 'package:flutterarquitetureapp/modules/search/presenter/search/search_page.dart';
 
 import 'app_widget.dart';
@@ -16,6 +17,7 @@ class AppModule extends MainModule{
     Bind((i) => GitHubDataSource(i())),
     Bind((i) => SearchRepository(i())),
     Bind((i) => SearchByText(i())),
+    Bind((i) => SearchBloc(i())),
   ];
 
   @override
@@ -27,5 +29,4 @@ class AppModule extends MainModule{
   List<ModularRouter> get routers => [
     ModularRouter('/', child: (x, y) => SearchPage()),
   ];
-
 }

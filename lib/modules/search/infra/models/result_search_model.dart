@@ -21,9 +21,9 @@ class ResultSearchModel extends ResultSearch{
     if(map == null) return null;
 
     return ResultSearchModel(
-      title: map['title'],
-      content: map['content'],
-      img: map['img'],
+      title: map['login'],
+      content: map['url'],
+      img: map['avatar_url'],
     );
   }
 
