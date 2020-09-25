@@ -11,9 +11,9 @@ class ResultSearchModel extends ResultSearch{
 
   Map<String, dynamic> toMap(){
     return{
-      'title': title,
-      'content':content,
-      'img': img,
+      'login': title,
+      'url':content,
+      'avatar_url': img,
     };
   }
 
