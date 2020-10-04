@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutterarquitetureapp/modules/search/domain/usercases/search_by_text.dart';
+import 'package:flutterarquitetureapp/modules/search/domain/usecases/search_by_text.dart';
 import 'package:flutterarquitetureapp/modules/search/presenter/search/states/state.dart';
 import 'package:rxdart/rxdart.dart';
 
